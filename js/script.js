@@ -29,7 +29,7 @@ function runTires() {
     return Math.floor(Math.random() * 10000);
 }
 const funcRandom = () => {
-    arrD = Array(10).fill(0).map(math);
+    arrD = Array(2).fill(0).map(math);
     arrT = Array(10).fill(0).map(math);
     arr733D = arrD;
     arr733T = arrT;
@@ -336,7 +336,7 @@ function getSensorInfo() { // get and show information about selected Sensor
     var result = unit.calculateSensorValue(sens, unit.getLastMessage());
     if (result == -348201.3876) result = "N/A"; // compare result with invalid sensor value constant
     // print result message
-    msg("Value of " + unit.getName() + " <b>'" + sens.n + "'</b> sensor (" + sens.t + "): " + result + " (" + sens.m + ")");
+    msg(result);
 }
 
 // execute when DOM ready
