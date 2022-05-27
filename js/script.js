@@ -316,17 +316,17 @@ function init() { // Execute after login succeed
         });
 }
 
-
+getMainInfo();
 function getMainInfo() {
     console.log("start");
 
-    var sess = wialon.core.Session.getInstance(); // get instance of current Session
+    const sess = wialon.core.Session.getInstance(); // get instance of current Session
     sess.loadLibrary("resourceAccounts");
     sess.loadLibrary("resourceDrivers");
     sess.loadLibrary("itemIcon"); // load Icon Library
     sess.loadLibrary("unitSensors");
     // flags to specify what kind of data should be returned
-    const flags = 1;//wialon.item.Item.dataFlag.base | wialon.item.Unit.dataFlag.restricted | wialon.item.Unit.dataFlag.lastMessage;
+    const flags = 1025;//wialon.item.Item.dataFlag.base | wialon.item.Unit.dataFlag.restricted | wialon.item.Unit.dataFlag.lastMessage;
 
     const prms = {
         "spec": {
@@ -348,7 +348,7 @@ function getMainInfo() {
                 console.log('error');
                 return;
             }
-            console.log(result.items.length);
+            return console.log(result.items.length);
 
             /* var totalUnits = result.items.length;
              total.innerHTML = totalUnits;
