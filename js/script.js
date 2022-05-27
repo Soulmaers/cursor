@@ -326,9 +326,9 @@ function getMainInfo() {
     sess.loadLibrary("itemIcon"); // load Icon Library
     sess.loadLibrary("unitSensors");
     // flags to specify what kind of data should be returned
-    var flags = 1 + 8 + 1024 + 256;//wialon.item.Item.dataFlag.base | wialon.item.Unit.dataFlag.restricted | wialon.item.Unit.dataFlag.lastMessage;
+    const flags = 1;//wialon.item.Item.dataFlag.base | wialon.item.Unit.dataFlag.restricted | wialon.item.Unit.dataFlag.lastMessage;
 
-    var prms = {
+    const prms = {
         "spec": {
             "itemsType": "avl_unit",
             "propName": "sys_name",
@@ -340,7 +340,7 @@ function getMainInfo() {
         "from": 0,
         "to": 0
     };
-    var remote = wialon.core.Remote.getInstance();
+    const remote = wialon.core.Remote.getInstance();
     remote.remoteCall('core/search_items', prms,
         function (code, result) {
             if (code) {
@@ -350,15 +350,12 @@ function getMainInfo() {
             }
             console.log(result);
 
-
             /* var totalUnits = result.items.length;
              total.innerHTML = totalUnits;
              getCountry(result.items);
              console.log('call sum');
              getSum(result.items);
  */
-
-
 
         });
 }
