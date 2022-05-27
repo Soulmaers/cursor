@@ -288,32 +288,25 @@ setInterval(upDia, 100);
 
 // wialon api запросы
 
-// Print message to log
-function msg(text) { $("#log").prepend(text + "<br/>"); }
+$(document).ready(function () {
 
-function init() { // Execute after login succeed
-    var sess = wialon.core.Session.getInstance(); // get instance of current Session
-    // flags to specify what kind of data should be returned
-    var flags = wialon.item.Item.dataFlag.base |
-        wialon.item.Unit.dataFlag.sensors |
-        wialon.item.Unit.dataFlag.lastMessage;
-    sess.loadLibrary("unitSensors"); // load Sensor Library
-    sess.updateDataFlags( // load items to current session
-        [{ type: "type", data: "avl_unit", flags: flags, mode: 0 }], // Items specification
-        function (code) { // updateDataFlags callback
-            if (code) { msg(wialon.core.Errors.getErrorText(code)); return; } // exit if error code  
-
-            var units = sess.getItems("avl_unit"); // get loaded 'avl_unit's items
-            if (!units || !units.length) { msg("No units found"); return; } // check if units found
-
-            for (var i = 0; i < units.length; i++) // construct Select list using found units
-                $("#units").append("<option value='" + units[i].getId() + "'>" + units[i].getName() + "</option>");
-            getMainInfo();
-            getSensors(); // get Sensors for currently selected unit
-            // bind actions to selects 
-            $("#units").change(getSensors);
-            $("#sensors").change(getSensorInfo);
+    wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // init session
+    // For more info about how to generate token check
+    // http://sdk.wialon.com/playground/demo/app_auth_token
+    wialon.core.Session.getInstance().loginToken("0f481b03d94e32db858c7bf2d8415204289C57FB5B35C22FC84E9F4ED84D5063558E1178", "", // try to login
+        function (code) { // login callback
+            if (code) { return; } // exit if error code
+            init(); // when login suceed then run init() function
         });
+});
+
+function init() {
+    console.log('init start');
+    // Get the Sidebar
+
+    getMainInfo()
+
+
 }
 
 
@@ -326,7 +319,7 @@ function getMainInfo() {
     sess.loadLibrary("itemIcon"); // load Icon Library
     sess.loadLibrary("unitSensors");
     // flags to specify what kind of data should be returned
-    const flags = 1025;//wialon.item.Item.dataFlag.base | wialon.item.Unit.dataFlag.restricted | wialon.item.Unit.dataFlag.lastMessage;
+    //const flags = 4096;//wialon.item.Item.dataFlag.base | wialon.item.Unit.dataFlag.restricted | wialon.item.Unit.dataFlag.lastMessage;
 
     const prms = {
         "spec": {
@@ -336,7 +329,7 @@ function getMainInfo() {
             "sortType": "sys_name"
         },
         "force": 1,
-        "flags": flags,
+        "flags": 4096,
         "from": 0,
         "to": 0
     };
@@ -358,10 +351,11 @@ function getMainInfo() {
  */
 
         });
+
 }
 
 
-
+/*
 
 function getSensors() { // construct sensors Select list for selected unit
     if (!$("#units").val()) { msg("Select unit"); return; } // exit if no unit selected
@@ -378,7 +372,7 @@ function getSensorInfo() { // get and show information about selected Sensor
     if (!$("#sensors").val()) return; // exit if no unit selected
     var sess = wialon.core.Session.getInstance(); // get instance of current Session
     var unit = sess.getItem($("#units").val()); // get unit by id
-    var sens = unit.getSensor($("#sensors").val()); // get sensor by id
+    var sens = unit.getSensors($("#sensors").val()); // get sensor by id
     // calculate sensor value
     let result = unit.calculateSensorValue(sens, unit.getLastMessage());
     if (result == -348201.3876) result = "N/A"; // compare result with invalid sensor value constant
@@ -387,16 +381,3 @@ function getSensorInfo() { // get and show information about selected Sensor
     console.log(result);
     msg(result);
 }
-
-// execute when DOM ready
-$(document).ready(function () {
-    msg("Trying to login");
-    wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // init session
-    // For more info about how to generate token check
-    // http://sdk.wialon.com/playground/demo/app_auth_token
-    wialon.core.Session.getInstance().loginToken("0f481b03d94e32db858c7bf2d8415204289C57FB5B35C22FC84E9F4ED84D5063558E1178", "", // try to login
-        function (code) { // login callback
-            if (code) { msg(wialon.core.Errors.getErrorText(code)); return; } // exit if error code
-            msg("Logged successfully"); init(); // when login suceed then run init() function
-        });
-});
