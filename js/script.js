@@ -316,6 +316,56 @@ function init() { // Execute after login succeed
         });
 }
 
+
+function getMainInfo() {
+    console.log("start");
+
+    var sess = wialon.core.Session.getInstance(); // get instance of current Session
+    sess.loadLibrary("resourceAccounts");
+    sess.loadLibrary("resourceDrivers");
+    sess.loadLibrary("itemIcon"); // load Icon Library
+    sess.loadLibrary("unitSensors");
+    // flags to specify what kind of data should be returned
+    var flags = 1 + 8 + 1024 + 256;//wialon.item.Item.dataFlag.base | wialon.item.Unit.dataFlag.restricted | wialon.item.Unit.dataFlag.lastMessage;
+
+    var prms = {
+        "spec": {
+            "itemsType": "avl_unit",
+            "propName": "sys_name",
+            "propValueMask": "*",
+            "sortType": "sys_name"
+        },
+        "force": 1,
+        "flags": flags,
+        "from": 0,
+        "to": 0
+    };
+    var remote = wialon.core.Remote.getInstance();
+    remote.remoteCall('core/search_items', prms,
+        function (code, result) {
+            if (code) {
+                //msg(wialon.core.Errors.getErrorText(code)); 
+                console.log('error');
+                return;
+            }
+            console.log(result);
+
+
+            /* var totalUnits = result.items.length;
+             total.innerHTML = totalUnits;
+             getCountry(result.items);
+             console.log('call sum');
+             getSum(result.items);
+ */
+
+
+
+        });
+}
+
+
+
+
 function getSensors() { // construct sensors Select list for selected unit
     if (!$("#units").val()) { msg("Select unit"); return; } // exit if no unit selected
     $("#sensors").html("<option></option>"); // add first empty element
