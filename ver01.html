@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Прототип интерфейса</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="menu">
+            <ul class="list_menu">
+                <li class="list_item_menu"><a class="link_menu" href="index.html">Мониторинг</a>
+                <li class=" list_item_menu"><a class="link_menu" href="ver01.html">Аналитика</a>
+                <li class="list_item_menu"><a class="link_menu" href="dash.html">Дашбоард</a>
+                <li class="list_item_menu"><a class="link_menu" href="#">Дашбоард.Мониторинг</a>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="wrapper_left">
+            <div class="header_table">
+                <div class="title_table">Имя объекта</div>
+                <div class="title_table">Время</div>
+                <div class="title_table">Статус</div>
+            </div>
+
+            <table class="table">
+                <tr class="tr">
+                    <td class="td">Курсор-GPS <span class="num">X729XX</span></td>
+                    <td class="td">
+                        <div class="time"></div>
+                    </td>
+                    <td class="td">
+                        <div class="bg_stat">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">Курсор-GPS <span class="num">X730XX</span></td>
+                    <td class="td">
+                        <div class="time"></div>
+                    </td>
+                    <td class="td">
+                        <div class="bg_stat">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">Курсор-GPS <span class="num">X731XX</span></td>
+                    <td class="td">
+                        <div class="time"></div>
+                    </td>
+                    <td class="td">
+                        <div class="bg_stat">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">Курсор-GPS <span class="num">X732XX</span></td>
+                    <td class="td">
+                        <div class="time"></div>
+                    </td>
+                    <td class="td">
+                        <div class="bg_stat">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">Курсор-GPS <span class="num">X733XX</span></td>
+                    <td class="td">
+                        <div class="time"></div>
+                    </td>
+                    <td class="td">
+                        <div class="bg_stat">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr">
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
+                </tr>
+                <tr class="tr">
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
+                </tr>
+                <tr class="tr">
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
+                </tr>
+                <tr class="tr">
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="wrapper_right">
+            <div class="dataActive">
+                <div class="value_tires">
+                    <div class="title_table_data">Дата установки</div>
+                    <div class="title_table_data">Пробег колеса</div>
+                </div>
+                <table class="table_data">
+                    <tr class="tr">
+                        <td class="tdd data_made">06.04.2022</td>
+                        <td class="tdd probeg">100км </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="check">
+                <form class="check_box" action="handler.php">
+                    <p class="p"><input class="input" type="checkbox" rel="c2_2" onchange="change()" name="a"
+                            value="2_2"> 2^2</p>
+                    <p class="p"><input class="input" type="checkbox" rel="c2_2_2" onchange="change()" name="a"
+                            value="2_2_2"> 2^2^2</p>
+                    <p class="p"><input class="input" type="checkbox" rel="c2_4_2" onchange="change()" name="a"
+                            value="2_4_2"> 2^4^2</p>
+                    <p class="p"><input class="input" type="checkbox" rel="c2_2_4" onchange="change()" name="a"
+                            value="2_2_4"> 2^2^4</p>
+                    <p class="p"><input class="input" type="checkbox" rel="c2_4_4" onchange="change()" name="a"
+                            value="2_4_4"> 2^4^4</p>
+                </form>
+            </div>
+            <div class="wrapper_containt">
+                <div class="card c2_2">
+                    <h2 class="title">Курсор-GPS</h2>
+                    <h2 class="title_two">X729XX</h2>
+                    <div class="container_2_4">
+                        <div class="front_axle">
+                            <div class="tires"><a class="tires_link double_link" rel="c2_2" href="#">
+                                    <div class="tiresD tiresD729"> </div>
+                                    <div class="tiresT tiresT729"></div>
+                                </a>
+                            </div>
+                            <div class="tires">
+                                <a class="tires_link double_link" rel="c2_2" href="#">
+                                    <div class="tiresD tiresD729"> </div>
+                                    <div class="tiresT tiresT729"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="rear_axle">
+                            <div class="tires">
+                                <a class="tires_link double_link" rel="c2_2" href="#">
+                                    <div class="tiresD tiresD729"> </div>
+                                    <div class="tiresT tiresT729"></div>
+                                </a>
+                            </div>
+                            <div class="tires">
+                                <a class="tires_link double_link" rel="c2_2" href="#">
+                                    <div class="tiresD tiresD729"> </div>
+                                    <div class="tiresT tiresT729"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card c2_2_2">
+                    <h2 class="title">Курсор-GPS</h2>
+                    <h2 class="title_two">X730XX</h2>
+                    <div class="container_3_6">
+                        <div class="front_axle">
+                            <div class="tires">
+                                <a class="tires_link" rel="c2_2_2" href="#">
+                                    <div class="tiresD tiresD730"> </div>
+                                    <div class="tiresT tiresT730"></div>
+                                </a>
+                            </div>
+                            <div class="tires">
+                                <a class="tires_link" rel="c2_2_2" href="#">
+                                    <div class="tiresD tiresD730"> </div>
+                                    <div class="tiresT tiresT730"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="front_center">
+                            <div class="tires">
+                                <a class="tires_link" rel="c2_2_2" href="#">
+                                    <div class="tiresD tiresD730"> </div>
+                                    <div class="tiresT tiresT730"></div>
+                                </a>
+                            </div>
+                            <div class="tires">
+                                <a class="tires_link" rel="c2_2_2" href="#">
+                                    <div class="tiresD tiresD730"> </div>
+                                    <div class="tiresT tiresT730"></div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="rear_axle">
+                            <div class="tires">
+                                <a class="tires_link" rel="c2_2_2" href="#">
+                                    <div class="tiresD tiresD730"> </div>
+                                    <div class="tiresT tiresT730"></div>
+                                </a>
+                            </div>
+                            <div class="tires">
+                                <a class="tires_link" rel="c2_2_2" href="#">
+                                    <div class="tiresD tiresD730"> </div>
+                                    <div class="tiresT tiresT730"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card c2_4_2">
+                    <h2 class="title">Курсор-GPS</h2>
+                    <h2 class="title_two">X731XX</h2>
+                    <div class="container_2_4_2">
+                        <div class="front_axle">
+                            <div class="tires">
+                                <a class="tires_link" href="#">
+                                    <div class="tiresD tiresD731"> </div>
+                                    <div class="tiresT tiresT731"></div>
+                                </a>
+                            </div>
+                            <div class="tires">
+                                <a class="tires_link" href="#">
+                                    <div class="tiresD tiresD731"> </div>
+                                    <div class="tiresT tiresT731"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="front_center">
+                            <div class="tires_spark">
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD731"> </div>
+                                        <div class="tiresT tiresT731"></div>
+                                    </a>
+                                </div>
+                                <div class="tires">
+
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD731"> </div>
+                                        <div class="tiresT tiresT731"></div>
+
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tires_spark">
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD731"> </div>
+                                        <div class="tiresT tiresT731"></div>
+                                    </a>
+                                </div>
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD731"> </div>
+                                        <div class="tiresT tiresT731"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rear_axle">
+                            <div class="tires">
+                                <a class="tires_link" href="#">
+                                    <div class="tiresD tiresD731"> </div>
+                                    <div class="tiresT tiresT731"></div>
+                                </a>
+                            </div>
+                            <div class="tires">
+                                <a class="tires_link" href="#">
+                                    <div class="tiresD tiresD731"> </div>
+                                    <div class="tiresT tiresT731"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card c2_2_4">
+                    <h2 class="title">Курсор-GPS</h2>
+                    <h2 class="title_two">X732XX</h2>
+                    <div class="container_2_2_4">
+                        <div class="front_axle">
+                            <div class="tires">
+                                <a class="tires_link" href="#">
+                                    <div class="tiresD tiresD732"> </div>
+                                    <div class="tiresT tiresT732"></div>
+                                </a>
+                            </div>
+                            <div class="tires">
+                                <a class="tires_link" href="#">
+                                    <div class="tiresD tiresD732"> </div>
+                                    <div class="tiresT tiresT732"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="front_center">
+                            <div class="tires">
+                                <a class="tires_link" href="#">
+                                    <div class="tiresD tiresD732"> </div>
+                                    <div class="tiresT tiresT732"></div>
+                                </a>
+                            </div>
+                            <div class="tires">
+                                <a class="tires_link" href="#">
+                                    <div class="tiresD tiresD732"> </div>
+                                    <div class="tiresT tiresT732"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="rear_axle">
+                            <div class="tires_spark">
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD732"> </div>
+                                        <div class="tiresT tiresT732"></div>
+                                    </a>
+                                </div>
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD732"> </div>
+                                        <div class="tiresT tiresT732"></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tires_spark">
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD732"> </div>
+                                        <div class="tiresT tiresT732"></div>
+                                    </a>
+                                </div>
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD732"> </div>
+                                        <div class="tiresT tiresT732"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card c2_4_4">
+                    <h2 class="title">Курсор-GPS</h2>
+                    <h2 class="title_two">X733XX</h2>
+                    <div class="container_2_4_4">
+                        <div class="front_axle">
+                            <div class="tires">
+                                <a class="tires_link" href="#">
+                                    <div class="tiresD tiresD733"> </div>
+                                    <div class="tiresT tiresT733"></div>
+                                </a>
+                            </div>
+                            <div class="tires">
+                                <a class="tires_link" href="#">
+                                    <div class="tiresD tiresD733"> </div>
+                                    <div class="tiresT tiresT733"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="front_center">
+                            <div class="tires_spark">
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD733"> </div>
+                                        <div class="tiresT tiresT733"></div>
+                                    </a>
+                                </div>
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD733"> </div>
+                                        <div class="tiresT tiresT733"></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tires_spark">
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD733"> </div>
+                                        <div class="tiresT tiresT733"></div>
+                                    </a>
+                                </div>
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD733"> </div>
+                                        <div class="tiresT tiresT733"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rear_axle">
+                            <div class="tires_spark">
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD733"> </div>
+                                        <div class="tiresT tiresT733"></div>
+                                    </a>
+                                </div>
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD733"> </div>
+                                        <div class="tiresT tiresT733"></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tires_spark">
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD733"> </div>
+                                        <div class="tiresT tiresT733"></div>
+                                    </a>
+                                </div>
+                                <div class="tires">
+                                    <a class="tires_link" href="#">
+                                        <div class="tiresD tiresD733"> </div>
+                                        <div class="tiresT tiresT733"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="grafik">
+                    <canvas id="myChartg" width="600" height="250"></canvas>
+                </div>
+            </div>
+            <!--<div class="card">
+                <h2 class="title">Объект3</h2>
+                <div class="container">
+                    <div class="front_axle">
+                        <div class="left_tires" id="left_tires"></div>
+                        <div class="right_tires" id="right_tires"></div>
+                    </div>
+                    <div class="rear_axle">
+                        <div class="left_tires" id="left_tires"></div>
+                        <div class="right_tires" id="right_tires"></div>
+                    </div>
+                </div>
+        </div>-->
+
+
+        </div>
+
+
+
+
+
+
+
+
+    </main>
+
+
+
+
+    <!--
+    <p>Новый Wialon App</p>
+    <div id="username" class="username"></div>
+    <div id="units"></div>
+    <script src="https://hst-api.wialon.com/wsdk/script/wialon.js"></script>
+    <script src="js/script.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="js/ver01.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Дашборд</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/dash.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="menu">
+            <ul class="list_menu">
+                <li class="list_item_menu"><a class="link_menu" href="index.html">Мониторинг</a>
+                <li class="list_item_menu"><a class="link_menu" href="ver01.html">Аналитика</a>
+                <li class="list_item_menu"><a class="link_menu" href="dash.html">Дашбоард</a>
+                <li class="list_item_menu"><a class="link_menu" href="#">Дашбоард.Мониторинг</a>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="wrapper_left">
+            <div class="header_table">
+                <div class="title_table">Имя объекта</div>
+                <div class="title_table">Время</div>
+                <div class="title_table">Статус</div>
+            </div>
+
+            <table class="table">
+                <tr class="tr">
+                    <td class="td">Курсор-GPS <span class="num">X729XX</span></td>
+                    <td class="td">
+                        <div class="time"></div>
+                    </td>
+                    <td class="td">
+                        <div class="bg_stat">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">Курсор-GPS <span class="num">X730XX</span></td>
+                    <td class="td">
+                        <div class="time"></div>
+                    </td>
+                    <td class="td">
+                        <div class="bg_stat">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">Курсор-GPS <span class="num">X731XX</span></td>
+                    <td class="td">
+                        <div class="time"></div>
+                    </td>
+                    <td class="td">
+                        <div class="bg_stat">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">Курсор-GPS <span class="num">X732XX</span></td>
+                    <td class="td">
+                        <div class="time"></div>
+                    </td>
+                    <td class="td">
+                        <div class="bg_stat">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr">
+                    <td class="td">Курсор-GPS <span class="num">X733XX</span></td>
+                    <td class="td">
+                        <div class="time"></div>
+                    </td>
+                    <td class="td">
+                        <div class="bg_stat">
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr">
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
+                </tr>
+                <tr class="tr">
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
+                </tr>
+                <tr class="tr">
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
+                </tr>
+                <tr class="tr">
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="wrapper_right_dash">
+            <div class="dash_card">
+                <h2 class="dash_title">
+                    Соотношение отклонений по давлению
+                </h2>
+                <div class="dash_board">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+            <div class="dash_card">
+                <h2 class="dash_title">
+
+                </h2>
+                <div class="dash_board">
+                    <canvas id="myChart2"></canvas>
+                </div>
+            </div>
+
+
+
+
+    </main>
+
+
+
+
+    <!--
+    <p>Новый Wialon App</p>
+    <div id="username" class="username"></div>
+    <div id="units"></div>
+    <script src="https://hst-api.wialon.com/wsdk/script/wialon.js"></script>
+    <script src="js/script.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="js/dash.js"></script>
+    <script src="js/ver01.js"></script>
+
+</body>
+
+</html>

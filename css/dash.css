@@ -1,0 +1,31 @@
+.dash_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 540px;
+    border: 10px solid lightgray;
+
+}
+
+.wrapper_right_dash {
+
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+
+}
+
+.dash_title {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    font-family: Roboto;
+    ;
+
+}
+
+.dash_board {
+    width: 80%;
+    padding: 10px;
+
+}
