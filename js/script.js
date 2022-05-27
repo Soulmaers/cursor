@@ -320,7 +320,7 @@ function init() { // Execute after login succeed
 function getMainInfo() {
 
     const sess = wialon.core.Session.getInstance(); // get instance of current Session
-    session.initSession('https://hst-api.wialon.com');
+    sess.initSession('https://hst-api.wialon.com');
     sess.loadLibrary("resourceAccounts");
     sess.loadLibrary("resourceDrivers");
     sess.loadLibrary("itemIcon"); // load Icon Library
