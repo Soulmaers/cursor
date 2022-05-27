@@ -322,6 +322,32 @@ function getMainInfo() {
     //const flags = 4096;//wialon.item.Item.dataFlag.base | wialon.item.Unit.dataFlag.restricted | wialon.item.Unit.dataFlag.lastMessage;
 
     const prms = {
+        "spec":
+            { "unitId": 25343786, "sensors": [] }
+
+    };
+
+    const remote = wialon.core.Remote.getInstance();
+    remote.remoteCall('unit/calc_last_message', prms,
+        function (code, result) {
+            if (code) {
+                //msg(wialon.core.Errors.getErrorText(code)); 
+                console.log('error');
+                return;
+            }
+            return console.log(result);
+
+            /* var totalUnits = result.items.length;
+             total.innerHTML = totalUnits;
+             getCountry(result.items);
+             console.log('call sum');
+             getSum(result.items);
+ */
+
+        });
+}
+/*
+    const prms = {
         "spec": {
             "itemsType": "avl_unit",
             "propName": "sys_name",
@@ -350,9 +376,12 @@ function getMainInfo() {
              getSum(result.items);
  */
 
-        });
 
-}
+
+
+
+
+
 
 
 /*
