@@ -348,7 +348,7 @@ function getMainInfo() {
                 console.log('error');
                 return;
             }
-            console.log(result);
+            console.log(result.items.length);
 
             /* var totalUnits = result.items.length;
              total.innerHTML = totalUnits;
