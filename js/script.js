@@ -325,7 +325,7 @@ function getSensors() { // construct sensors Select list for selected unit
     for (var i in sens) // construct select list
         $("#sensors").append("<option value='" + sens[i].id + "'>" + sens[i].n + "</option>");
 }
-
+let result;
 function getSensorInfo() { // get and show information about selected Sensor
     if (!$("#units").val()) { msg("Select unit"); return; } // exit if no unit selected
     if (!$("#sensors").val()) return; // exit if no unit selected
@@ -333,9 +333,10 @@ function getSensorInfo() { // get and show information about selected Sensor
     var unit = sess.getItem($("#units").val()); // get unit by id
     var sens = unit.getSensor($("#sensors").val()); // get sensor by id
     // calculate sensor value
-    var result = unit.calculateSensorValue(sens, unit.getLastMessage());
+    let result = unit.calculateSensorValue(sens, unit.getLastMessage());
     if (result == -348201.3876) result = "N/A"; // compare result with invalid sensor value constant
     // print result message
+    console.log(sens);
     msg(result);
 }
 
