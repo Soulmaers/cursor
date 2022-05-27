@@ -337,6 +337,7 @@ function getSensorInfo() { // get and show information about selected Sensor
     if (result == -348201.3876) result = "N/A"; // compare result with invalid sensor value constant
     // print result message
     console.log(sens);
+    console.log(result);
     msg(result);
 }
 
