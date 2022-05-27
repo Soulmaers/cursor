@@ -380,4 +380,4 @@ function getSensorInfo() { // get and show information about selected Sensor
     console.log(sens);
     console.log(result);
     msg(result);
-}
+}*/
