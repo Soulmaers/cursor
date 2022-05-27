@@ -308,7 +308,7 @@ function init() { // Execute after login succeed
 
             for (var i = 0; i < units.length; i++) // construct Select list using found units
                 $("#units").append("<option value='" + units[i].getId() + "'>" + units[i].getName() + "</option>");
-
+            getMainInfo();
             getSensors(); // get Sensors for currently selected unit
             // bind actions to selects 
             $("#units").change(getSensors);
@@ -316,9 +316,8 @@ function init() { // Execute after login succeed
         });
 }
 
-getMainInfo();
+
 function getMainInfo() {
-    console.log("start");
 
     const sess = wialon.core.Session.getInstance(); // get instance of current Session
     sess.loadLibrary("resourceAccounts");
@@ -348,7 +347,7 @@ function getMainInfo() {
                 console.log('error');
                 return;
             }
-            return console.log(result.items.length);
+            return console.log(result);
 
             /* var totalUnits = result.items.length;
              total.innerHTML = totalUnits;
