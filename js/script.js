@@ -17,10 +17,10 @@ $(document).ready(function () {
 
 function getMainInfo() {
     const sess = wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // get instance of current Session
-    sess.loadLibrary("resourceAccounts");
-    sess.loadLibrary("resourceDrivers");
-    sess.loadLibrary("itemIcon"); // load Icon Library
-    sess.loadLibrary("unitSensors");
+    // sess.loadLibrary("resourceAccounts");
+    //sess.loadLibrary("resourceDrivers");
+    //sess.loadLibrary("itemIcon"); // load Icon Library
+    //sess.loadLibrary("unitSensors");
     // flags to specify what kind of data should be returned
     //const flags = 4096;//wialon.item.Item.dataFlag.base | wialon.item.Unit.dataFlag.restricted | wialon.item.Unit.dataFlag.lastMessage;
 
