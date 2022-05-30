@@ -29,7 +29,7 @@ function runTires() {
     return Math.floor(Math.random() * 10000);
 }
 const funcRandom = () => {
-    arrD = Array(2).fill(0).map(math);
+    arrD = Array(2).fill(0).map(getMainInfo);
     arrT = Array(10).fill(0).map(math);
     arr733D = arrD;
     arr733T = arrT;
@@ -287,7 +287,6 @@ setInterval(upDia, 100);
 
 
 // wialon api запросы
-
 $(document).ready(function () {
 
     wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // init session
@@ -295,20 +294,14 @@ $(document).ready(function () {
     // http://sdk.wialon.com/playground/demo/app_auth_token
     wialon.core.Session.getInstance().loginToken("0f481b03d94e32db858c7bf2d8415204289C57FB5B35C22FC84E9F4ED84D5063558E1178", "", // try to login
         function (code) { // login callback
-            if (code) { return; } // exit if error code
-            init(); // when login suceed then run init() function
+            if (code) {
+                return;
+            } // exit if error code
+            getMainInfo(); // when login suceed then run init() function
         });
 });
 
-function init() {
-    console.log('init start');
-    // Get the Sidebar
-
-    getMainInfo()
-
-
-}
-
+setInterval(getMainInfo, 1000);
 
 function getMainInfo() {
 
@@ -321,63 +314,26 @@ function getMainInfo() {
     // flags to specify what kind of data should be returned
     //const flags = 4096;//wialon.item.Item.dataFlag.base | wialon.item.Unit.dataFlag.restricted | wialon.item.Unit.dataFlag.lastMessage;
 
-    const prms = {
-        "spec":
-            { "unitId": 25343786, "sensors": [] }
+    var prms1 = {
+        "unitId": 25343786,
+        "sensors": []
 
     };
 
     const remote = wialon.core.Remote.getInstance();
-    remote.remoteCall('unit/calc_last_message', prms,
+    remote.remoteCall('unit/calc_last_message', prms1,
         function (code, result) {
             if (code) {
                 //msg(wialon.core.Errors.getErrorText(code)); 
-                console.log('error');
-                return;
+                console.log(wialon.core.Errors.getErrorText(code));
+                //msg();
             }
-            return console.log(result);
 
-            /* var totalUnits = result.items.length;
-             total.innerHTML = totalUnits;
-             getCountry(result.items);
-             console.log('call sum');
-             getSum(result.items);
- */
-
+            return console.log(arr = Object.values(result));
         });
+
+    return
 }
-/*
-    const prms = {
-        "spec": {
-            "itemsType": "avl_unit",
-            "propName": "sys_name",
-            "propValueMask": "*",
-            "sortType": "sys_name"
-        },
-        "force": 1,
-        "flags": 4096,
-        "from": 0,
-        "to": 0
-    };
-    const remote = wialon.core.Remote.getInstance();
-    remote.remoteCall('core/search_items', prms,
-        function (code, result) {
-            if (code) {
-                //msg(wialon.core.Errors.getErrorText(code)); 
-                console.log('error');
-                return;
-            }
-            return console.log(result);
-
-            /* var totalUnits = result.items.length;
-             total.innerHTML = totalUnits;
-             getCountry(result.items);
-             console.log('call sum');
-             getSum(result.items);
- */
-
-
-
 
 
 
