@@ -80,7 +80,7 @@ function runTires() {
 }
 const funcRandom = () => {
     arrD = Array(2).fill(0).map(getMainInfo);
-    arrT = Array(10).fill(0).map(math);
+    arrT = getMainInfo;
     arr733D = arrD;
     arr733T = arrT;
 
