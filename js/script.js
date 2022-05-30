@@ -3,15 +3,13 @@
 // wialon api запросы
 $(document).ready(function () {
 
-    wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // init session
-    // For more info about how to generate token check
-    // http://sdk.wialon.com/playground/demo/app_auth_token
+    wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com");
     wialon.core.Session.getInstance().loginToken("0f481b03d94e32db858c7bf2d8415204289C57FB5B35C22FC84E9F4ED84D5063558E1178", "", // try to login
-        function (code) { // login callback
+        function (code) {
             if (code) {
                 return;
-            } // exit if error code
-            //setInterval(getMainInfo, 2000);; // when login suceed then run init() function
+            }
+            //setInterval(getMainInfo, 2000);
             getMainInfo()
         });
 });
@@ -64,12 +62,12 @@ function runTires() {
     return Math.floor(Math.random() * 10000);
 }
 
-/*const funcRandom = () => {
+const funcRandom = () => {
     arrD = Array(2).fill(0).map(math);
     arrT = Array(10).fill(0).map(math);
     arr733D = arrD;
-    arr733T = arrT;*/
-
+    arr733T = arrT;
+}
 
 //Объект 5
 const Obj733 = () => {
@@ -107,9 +105,9 @@ const Obj733 = () => {
     }
 }
 Obj733();
-/*
+
 funcRandom();
-setInterval(funcRandom, 5000)*/
+setInterval(funcRandom, 5000)
 
 //текущее время
 function getNowtime() {
