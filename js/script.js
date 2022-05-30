@@ -17,7 +17,7 @@ $(document).ready(function () {
 });
 
 function getMainInfo() {
-    //  wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // get instance of current Session
+    wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // get instance of current Session
     // sess.loadLibrary("resourceAccounts");
     //sess.loadLibrary("resourceDrivers");
     //sess.loadLibrary("itemIcon"); // load Icon Library
@@ -79,8 +79,8 @@ function runTires() {
     return Math.floor(Math.random() * 10000);
 }
 const funcRandom = () => {
-    arrD = Array(2).fill(0).map(getMainInfo);
-    arrT = getMainInfo;
+    arrD = Array(2).fill(0).map(math);
+    arrT = Array(10).fill(0).map(math);
     arr733D = arrD;
     arr733T = arrT;
 
