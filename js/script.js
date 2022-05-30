@@ -18,27 +18,16 @@ $(document).ready(function () {
 
 function getMainInfo() {
     wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // get instance of current Session
-    // sess.loadLibrary("resourceAccounts");
-    //sess.loadLibrary("resourceDrivers");
-    //sess.loadLibrary("itemIcon"); // load Icon Library
-    //sess.loadLibrary("unitSensors");
-    // flags to specify what kind of data should be returned
-    //const flags = 4096;//wialon.item.Item.dataFlag.base | wialon.item.Unit.dataFlag.restricted | wialon.item.Unit.dataFlag.lastMessage;
-
     var prms1 = {
         "unitId": 25343786,
         "sensors": []
-
     };
     const remote = wialon.core.Remote.getInstance();
     remote.remoteCall('unit/calc_last_message', prms1,
         function (code, result) {
             if (code) {
-                //msg(wialon.core.Errors.getErrorText(code)); 
                 console.log(wialon.core.Errors.getErrorText(code));
-                //msg();
             }
-
             return console.log(arr = Object.values(result));
         });
 
@@ -74,7 +63,7 @@ function runTires() {
     return Math.floor(Math.random() * 10000);
 }
 const funcRandom = () => {
-    arrD = getMainInfo();//Array(2).fill(0).map(math);
+    arrD = Array(2).fill(0).map(math);
     arrT = Array(10).fill(0).map(math);
     arr733D = arrD;
     arr733T = arrT;
