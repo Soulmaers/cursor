@@ -46,10 +46,6 @@ function getMainInfo() {
     return
 }
 
-
-
-
-
 //проверяем условия
 function gener(el) {
     let generatedValue;
