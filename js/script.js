@@ -29,7 +29,7 @@ function runTires() {
     return Math.floor(Math.random() * 10000);
 }
 const funcRandom = () => {
-    arrD = Array(2).fill(0).map(getMainInfo);
+    arrD = Array(2).fill(0).map(math);
     arrT = Array(10).fill(0).map(math);
     arr733D = arrD;
     arr733T = arrT;
