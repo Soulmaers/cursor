@@ -11,7 +11,8 @@ $(document).ready(function () {
             if (code) {
                 return;
             } // exit if error code
-            setInterval(getMainInfo, 2000);; // when login suceed then run init() function
+            //setInterval(getMainInfo, 2000);; // when login suceed then run init() function
+            getMainInfo()
         });
 });
 
