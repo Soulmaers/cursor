@@ -1,5 +1,5 @@
 
-var dns = "https://hosting.wialon.com";
+
 // wialon api запросы
 $(document).ready(function () {
 
