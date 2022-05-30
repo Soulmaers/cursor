@@ -304,9 +304,7 @@ $(document).ready(function () {
 
 
 function getMainInfo() {
-
-    const sess = wialon.core.Session.getInstance(); // get instance of current Session
-    sess.initSession('https://hst-api.wialon.com');
+    const sess = wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // get instance of current Session
     sess.loadLibrary("resourceAccounts");
     sess.loadLibrary("resourceDrivers");
     sess.loadLibrary("itemIcon"); // load Icon Library
