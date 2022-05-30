@@ -67,45 +67,45 @@ const funcRandom = () => {
     arrT = Array(10).fill(0).map(math);
     arr733D = arrD;
     arr733T = arrT;
-}
 
-//Объект 5
-const Obj733 = () => {
-    const alls = document.querySelectorAll('.tiresD733');
-    const allsT = document.querySelectorAll('.tiresT733');
-    time[0].textContent = getNowtime();
-    const logic733 = () => {
-        alls.forEach(function (elem, index) {
-            elem.textContent = arr733D[index] + '\nатм';
-        })
-        allsT.forEach(function (elem, index) {
-            elem.textContent = arr733T[index] + '°C';
-        })
-        alls.forEach(function (elem, index) {
-            elem.style.background = objColor[gener(arr733D[index])];
-        })
-        allsT.forEach(function (elem, index) {
-            elem.style.background = objColor[gener(arr733T[index])];
-        })
-    }
-    logic733();
-    const statGal = () => {
-        stat[0].style.backgroundImage = "url(image/gal.png)";
-    }
-    const statEr = () => {
-        stat[0].style.backgroundImage = "url(image/er.png)";
-    }
-    if (arr733D[0] >= 2 && arr733D[1] >= 2 && arr733D[2] >= 2 && arr733D[3] >= 2 && arr733D[4] >= 2
-        && arr733D[5] >= 2 && arr733D[6] >= 2 && arr733D[7] >= 2 && arr733D[8] >= 2 && arr733D[9] >= 2 &&
-        arr733T[0] >= 2 && arr733T[1] >= 2 && arr733T[2] >= 2 && arr733T[3] >= 2 && arr733T[4] >= 2
-        && arr733T[5] >= 2 && arr733T[6] >= 2 && arr733T[7] >= 2 && arr733T[8] >= 2 && arr733T[9] >= 2) {
-        statGal();
-    } else {
-        statEr();
-    }
-}
-Obj733();
 
+    //Объект 5
+    const Obj733 = () => {
+        const alls = document.querySelectorAll('.tiresD733');
+        const allsT = document.querySelectorAll('.tiresT733');
+        time[0].textContent = getNowtime();
+        const logic733 = () => {
+            alls.forEach(function (elem, index) {
+                elem.textContent = arr733D[index] + '\nатм';
+            })
+            allsT.forEach(function (elem, index) {
+                elem.textContent = arr733T[index] + '°C';
+            })
+            alls.forEach(function (elem, index) {
+                elem.style.background = objColor[gener(arr733D[index])];
+            })
+            allsT.forEach(function (elem, index) {
+                elem.style.background = objColor[gener(arr733T[index])];
+            })
+        }
+        logic733();
+        const statGal = () => {
+            stat[0].style.backgroundImage = "url(image/gal.png)";
+        }
+        const statEr = () => {
+            stat[0].style.backgroundImage = "url(image/er.png)";
+        }
+        if (arr733D[0] >= 2 && arr733D[1] >= 2 && arr733D[2] >= 2 && arr733D[3] >= 2 && arr733D[4] >= 2
+            && arr733D[5] >= 2 && arr733D[6] >= 2 && arr733D[7] >= 2 && arr733D[8] >= 2 && arr733D[9] >= 2 &&
+            arr733T[0] >= 2 && arr733T[1] >= 2 && arr733T[2] >= 2 && arr733T[3] >= 2 && arr733T[4] >= 2
+            && arr733T[5] >= 2 && arr733T[6] >= 2 && arr733T[7] >= 2 && arr733T[8] >= 2 && arr733T[9] >= 2) {
+            statGal();
+        } else {
+            statEr();
+        }
+    }
+    Obj733();
+}
 funcRandom();
 setInterval(funcRandom, 5000)
 
