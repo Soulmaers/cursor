@@ -1,4 +1,53 @@
 
+var dns = "https://hosting.wialon.com";
+// wialon api запросы
+$(document).ready(function () {
+
+    wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // init session
+    // For more info about how to generate token check
+    // http://sdk.wialon.com/playground/demo/app_auth_token
+    wialon.core.Session.getInstance().loginToken("0f481b03d94e32db858c7bf2d8415204289C57FB5B35C22FC84E9F4ED84D5063558E1178", "", // try to login
+        function (code) { // login callback
+            if (code) {
+                return;
+            } // exit if error code
+            setInterval(getMainInfo, 2000);; // when login suceed then run init() function
+        });
+});
+
+function getMainInfo() {
+    const sess = wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // get instance of current Session
+    sess.loadLibrary("resourceAccounts");
+    sess.loadLibrary("resourceDrivers");
+    sess.loadLibrary("itemIcon"); // load Icon Library
+    sess.loadLibrary("unitSensors");
+    // flags to specify what kind of data should be returned
+    //const flags = 4096;//wialon.item.Item.dataFlag.base | wialon.item.Unit.dataFlag.restricted | wialon.item.Unit.dataFlag.lastMessage;
+
+    var prms1 = {
+        "unitId": 25343786,
+        "sensors": []
+
+    };
+
+    const remote = wialon.core.Remote.getInstance();
+    remote.remoteCall('unit/calc_last_message', prms1,
+        function (code, result) {
+            if (code) {
+                //msg(wialon.core.Errors.getErrorText(code)); 
+                console.log(wialon.core.Errors.getErrorText(code));
+                //msg();
+            }
+
+            return console.log(arr = Object.values(result));
+        });
+
+    return
+}
+
+
+
+
 
 //проверяем условия
 function gener(el) {
@@ -284,55 +333,6 @@ const upDia = () => {
     myChartg.update();
 }
 setInterval(upDia, 100);
-
-
-// wialon api запросы
-$(document).ready(function () {
-
-    wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // init session
-    // For more info about how to generate token check
-    // http://sdk.wialon.com/playground/demo/app_auth_token
-    wialon.core.Session.getInstance().loginToken("0f481b03d94e32db858c7bf2d8415204289C57FB5B35C22FC84E9F4ED84D5063558E1178", "", // try to login
-        function (code) { // login callback
-            if (code) {
-                return;
-            } // exit if error code
-            setInterval(getMainInfo, 2000);; // when login suceed then run init() function
-        });
-});
-
-
-
-function getMainInfo() {
-    const sess = wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // get instance of current Session
-   // sess.loadLibrary("resourceAccounts");
-    //sess.loadLibrary("resourceDrivers");
-    //sess.loadLibrary("itemIcon"); // load Icon Library
-    //sess.loadLibrary("unitSensors");
-    // flags to specify what kind of data should be returned
-    //const flags = 4096;//wialon.item.Item.dataFlag.base | wialon.item.Unit.dataFlag.restricted | wialon.item.Unit.dataFlag.lastMessage;
-
-    var prms1 = {
-        "unitId": 25343786,
-        "sensors": []
-
-    };
-
-    const remote = wialon.core.Remote.getInstance();
-    remote.remoteCall('unit/calc_last_message', prms1,
-        function (code, result) {
-            if (code) {
-                //msg(wialon.core.Errors.getErrorText(code)); 
-                console.log(wialon.core.Errors.getErrorText(code));
-                //msg();
-            }
-
-            return console.log(arr = Object.values(result));
-        });
-
-    return
-}
-
 
 
 
