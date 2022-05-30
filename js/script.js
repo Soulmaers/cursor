@@ -297,11 +297,11 @@ $(document).ready(function () {
             if (code) {
                 return;
             } // exit if error code
-            getMainInfo(); // when login suceed then run init() function
+            setInterval(getMainInfo, 2000);; // when login suceed then run init() function
         });
 });
 
-setInterval(getMainInfo, 1000);
+
 
 function getMainInfo() {
 
