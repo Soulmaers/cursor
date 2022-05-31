@@ -38,7 +38,7 @@ function getMainInfo() {
                     generatedValue = 3;
                 if (el >= 7 && el < 8 || el > 10 && el <= 11)
                     generatedValue = 2;
-                if (el >= -10000 && el < 7 || el > 11 && el <= 1000000)
+                if (el >= -10000000 && el < 7 || el > 11 && el <= 1000000)
                     generatedValue = 1;
                 return generatedValue;
             };
