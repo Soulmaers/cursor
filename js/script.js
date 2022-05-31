@@ -162,7 +162,61 @@ function getMainInfo() {
                 return nowTime;
             }
 
+            //проваливаемся в колесо
+            const tires_link = document.querySelectorAll('.tires_link');
+            const arrTireslink = Array.from(tires_link);
+            arrTireslink.forEach(function (elem, index) {
+                elem.addEventListener('click', tiresActive);
+                function tiresActive() {
+                    arrTireslink.forEach(function (elem, index) {
+                        tD = document.querySelectorAll('.tiresD');
+                        tT = document.querySelectorAll('.tiresT');
+                        elem = tD[index].classList.remove('tiresActiveD');
+                        elem = tT[index].classList.remove('tiresActiveT');
+                    })
+                    tD = document.querySelectorAll('.tiresD');
+                    tT = document.querySelectorAll('.tiresT');
+                    elem = tD[index].classList.toggle('tiresActiveD');
+                    elem = tT[index].classList.toggle('tiresActiveT');
+                    check = document.querySelector('.check')
+                    //check.style.display = 'none';
+                    dataActive = document.querySelector('.dataActive')
+                    dataActive.style.display = 'block';
+                    wCA = document.querySelector('.wrapper_containt')
+                    wCA.classList.add('wrapper_containt_active')
+                    grafik = document.querySelector('.grafik');
+                    grafik.style.display = 'block';
+                }
 
+            });
+
+            arrTireslink.forEach((elem, index) => {
+                elem.addEventListener('click', tiresLinkfunc);
+                function tiresLinkfunc() {
+                    const dataMade = document.querySelector('.data_made');
+                    const probeg = document.querySelector('.probeg');
+                    const runShine = Array(10).fill(0).map(runTires);
+                    function tiresActivedatchik() {
+                        elem = runShine[index];
+                        probeg.textContent = elem + ' ' + 'км';
+                    }
+                    tiresActivedatchik();
+                    function dataMadefunc() {
+                        elem = arData[index];
+                        dataMade.textContent = elem;
+                    }
+                    dataMadefunc();
+                    function tiresGrafik() {
+                        elem = arrAll1[index];
+                        davl = elem;
+                        elem = arrAll2[index];
+                        davl2 = elem;
+                    }
+                    tiresGrafik(arrAll1)
+                    tiresGrafik(arrAll2)
+                }
+                tiresLinkfunc();
+            });
 
             //рандомная дата
             function randomDate(start, end) {
@@ -185,6 +239,7 @@ function getMainInfo() {
                 })
             }
             dataVunc()
+            go();
         });
 
 }
@@ -192,61 +247,7 @@ function getMainInfo() {
 const arrAll1 = [[], [], [], [], [], [], [], [], [], []];
 const arrAll2 = [[], [], [], [], [], [], [], [], [], []];
 
-//проваливаемся в колесо
-const tires_link = document.querySelectorAll('.tires_link');
-const arrTireslink = Array.from(tires_link);
-arrTireslink.forEach(function (elem, index) {
-    elem.addEventListener('click', tiresActive);
-    function tiresActive() {
-        arrTireslink.forEach(function (elem, index) {
-            tD = document.querySelectorAll('.tiresD');
-            tT = document.querySelectorAll('.tiresT');
-            elem = tD[index].classList.remove('tiresActiveD');
-            elem = tT[index].classList.remove('tiresActiveT');
-        })
-        tD = document.querySelectorAll('.tiresD');
-        tT = document.querySelectorAll('.tiresT');
-        elem = tD[index].classList.toggle('tiresActiveD');
-        elem = tT[index].classList.toggle('tiresActiveT');
-        check = document.querySelector('.check')
-        //check.style.display = 'none';
-        dataActive = document.querySelector('.dataActive')
-        dataActive.style.display = 'block';
-        wCA = document.querySelector('.wrapper_containt')
-        wCA.classList.add('wrapper_containt_active')
-        grafik = document.querySelector('.grafik');
-        grafik.style.display = 'block';
-    }
 
-});
-
-arrTireslink.forEach((elem, index) => {
-    elem.addEventListener('click', tiresLinkfunc);
-    function tiresLinkfunc() {
-        const dataMade = document.querySelector('.data_made');
-        const probeg = document.querySelector('.probeg');
-        const runShine = Array(10).fill(0).map(runTires);
-        function tiresActivedatchik() {
-            elem = runShine[index];
-            probeg.textContent = elem + ' ' + 'км';
-        }
-        tiresActivedatchik();
-        function dataMadefunc() {
-            elem = arData[index];
-            dataMade.textContent = elem;
-        }
-        dataMadefunc();
-        function tiresGrafik() {
-            elem = arrAll1[index];
-            davl = elem;
-            elem = arrAll2[index];
-            davl2 = elem;
-        }
-        tiresGrafik(arrAll1)
-        tiresGrafik(arrAll2)
-    }
-    tiresLinkfunc();
-});
 //кладем значения в каждое колесо
 arrTime = [];
 function go() {
@@ -259,7 +260,7 @@ function go() {
     })
     return arrAll1, arrAll2;
 }
-go();
+
 //setInterval(go, 2000);
 
 //графики
