@@ -105,7 +105,7 @@ function getMainInfo() {
                 Obj733();
             }
             funcRandom();
-            setInterval(funcRandom, 5000)
+            //setInterval(funcRandom, 5000)
 
             //текущее время
             function getNowtime() {
@@ -244,7 +244,7 @@ function getMainInfo() {
                 return arrAll1, arrAll2;
             }
             go();
-            setInterval(go, 5000);
+            //setInterval(go, 5000);
 
             //графики
             Chart.register(ChartDataLabels);
