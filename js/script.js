@@ -1,37 +1,6 @@
 
 
-// wialon api запросы
-$(document).ready(function () {
 
-    wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com");
-    wialon.core.Session.getInstance().loginToken("0f481b03d94e32db858c7bf2d8415204289C57FB5B35C22FC84E9F4ED84D5063558E1178", "", // try to login
-        function (code) {
-            if (code) {
-                return;
-            }
-            //setInterval(getMainInfo, 2000);
-            getMainInfo()
-        });
-});
-
-function getMainInfo() {
-    wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // get instance of current Session
-    var prms1 = {
-        "unitId": 25343786,
-        "sensors": []
-    };
-    const remote = wialon.core.Remote.getInstance();
-    remote.remoteCall('unit/calc_last_message', prms1,
-        function (code, result) {
-            if (code) {
-                console.log(wialon.core.Errors.getErrorText(code));
-            }
-            return arr = Object.values(result);
-
-        });
-
-    return
-}
 
 //проверяем условия
 function gener(el) {
@@ -63,6 +32,38 @@ function runTires() {
 }
 
 const funcRandom = () => {
+
+    // wialon api запросы
+    $(document).ready(function () {
+
+        wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com");
+        wialon.core.Session.getInstance().loginToken("0f481b03d94e32db858c7bf2d8415204289C57FB5B35C22FC84E9F4ED84D5063558E1178", "", // try to login
+            function (code) {
+                if (code) {
+                    return;
+                }
+                //setInterval(getMainInfo, 2000);
+                getMainInfo()
+            });
+    });
+
+    function getMainInfo() {
+        wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // get instance of current Session
+        var prms1 = {
+            "unitId": 25343786,
+            "sensors": []
+        };
+        const remote = wialon.core.Remote.getInstance();
+        remote.remoteCall('unit/calc_last_message', prms1,
+            function (code, result) {
+                if (code) {
+                    console.log(wialon.core.Errors.getErrorText(code));
+                }
+                return arr = Object.values(result);
+            });
+
+    }
+
     arrD = Array(2).fill(0).map(math);
     arrT = Array(10).fill(0).map(math);
     arr733D = arrD;
