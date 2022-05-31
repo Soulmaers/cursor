@@ -27,8 +27,8 @@ function getMainInfo() {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
             arr = Object.values(result);
-            arrayD = arr.slice(0, 9);
-            arrayT = arr.slice(10, 20);
+            arrayD = arr.slice(0, 10);
+            arrayT = arr.slice(11, 20);
 
 
             //проверяем условия
