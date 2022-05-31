@@ -254,80 +254,80 @@ function getMainInfo() {
                 return arrAll1, arrAll2;
             }
             go();
-            setInterval(go, 2000);
+            //setInterval(go, 2000);
 
             //графики
-            /* Chart.register(ChartDataLabels);
-             myChartg = new Chart(myChartg, {
-                 type: 'line',
-                 data: {
-                     datasets: [{
-                         data: davl,
-                         label: 'Давление',
-                         fill: false,
-                         borderColor: 'lightgreen',
-                         yAxisID: 'left-y-axis'
-                     }, {
-                         data: davl2,
-                         label: 'Температура',
-                         fill: false,
-                         borderColor: 'lightblue',
-                         yAxisID: 'right-y-axis'
-                     }],
-                     labels: arrTime
-                 },
-                 options: {
-                     plugins: {
-                         legend: {
-                             labels: {
-                                 font: {
-                                     size: 20,
-                                 },
-                                 color: 'gray'
-                             }
-                         }
-                     },
-                     scales: {
-                         'left-y-axis': {
-                             type: 'linear',
-                             position: 'left',
-                             min: 0,
-                             max: 12,
-                             ticks: {
-                                 font: {
-                                     size: 18,
-                                 }
-                             }
-                         },
-                         'right-y-axis': {
-                             type: 'linear',
-                             position: 'right',
-                             min: 0,
-                             max: 25,
-                             ticks: {
-                                 font: {
-                                     size: 18,
-                                 }
-                             }
-                         },
-                         x: {
-                             ticks: {
-                                 font: {
-                                     size: 10
-                                 }
-                             }
-                         }
-                     },
-                 }
-             });
-             const upDia = () => {
-                 myChartg.data.datasets[0].data = davl;
-                 myChartg.data.datasets[1].data = davl2;
-                 myChartg.update();
-             }
-             setInterval(upDia, 100);
- 
- */
+            Chart.register(ChartDataLabels);
+            myChartg = new Chart(myChartg, {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        data: davl,
+                        label: 'Давление',
+                        fill: false,
+                        borderColor: 'lightgreen',
+                        yAxisID: 'left-y-axis'
+                    }, {
+                        data: davl2,
+                        label: 'Температура',
+                        fill: false,
+                        borderColor: 'lightblue',
+                        yAxisID: 'right-y-axis'
+                    }],
+                    labels: arrTime
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            labels: {
+                                font: {
+                                    size: 20,
+                                },
+                                color: 'gray'
+                            }
+                        }
+                    },
+                    scales: {
+                        'left-y-axis': {
+                            type: 'linear',
+                            position: 'left',
+                            min: 0,
+                            max: 12,
+                            ticks: {
+                                font: {
+                                    size: 18,
+                                }
+                            }
+                        },
+                        'right-y-axis': {
+                            type: 'linear',
+                            position: 'right',
+                            min: 0,
+                            max: 25,
+                            ticks: {
+                                font: {
+                                    size: 18,
+                                }
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                font: {
+                                    size: 10
+                                }
+                            }
+                        }
+                    },
+                }
+            });
+            const upDia = () => {
+                myChartg.data.datasets[0].data = davl;
+                myChartg.data.datasets[1].data = davl2;
+                myChartg.update();
+            }
+            setInterval(upDia, 100);
+
+
         });
 
 }
