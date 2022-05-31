@@ -189,7 +189,36 @@ function getMainInfo() {
                 }
 
             });
+            //рандомная дата
+            function randomDate(start, end) {
+                return new Date(start.getTime()
+                    + Math.random() * (end.getTime() - start.getTime()));
+            }
+            const date01 = randomDate(new Date(2010, 0, 1), new Date()); const date02 = randomDate(new Date(2010, 0, 1), new Date());
+            const date03 = randomDate(new Date(2010, 0, 1), new Date()); const date04 = randomDate(new Date(2010, 0, 1), new Date());
+            const date05 = randomDate(new Date(2010, 0, 1), new Date()); const date06 = randomDate(new Date(2010, 0, 1), new Date());
+            const date07 = randomDate(new Date(2010, 0, 1), new Date()); const date08 = randomDate(new Date(2010, 0, 1), new Date());
+            const date09 = randomDate(new Date(2010, 0, 1), new Date()); const date10 = randomDate(new Date(2010, 0, 1), new Date());
 
+            const arrDates = [date01, date02, date03, date04, date05, date06, date07, date08, date09, date10];
+            function dataVunc() {
+                arData = [];
+                arrDates.forEach((elem) => {
+                    ar = (`${elem.getFullYear()}-${('0' + (elem.getMonth() + 1)).slice(-2)}-${('0' + elem.getDate()).slice(-2)}`);
+                    arData.push(ar);
+                    return arData;
+                })
+            }
+
+
+
+
+            dataVunc()
+
+
+
+            const arrAll1 = [[], [], [], [], [], [], [], [], [], []];
+            const arrAll2 = [[], [], [], [], [], [], [], [], [], []];
             arrTireslink.forEach((elem, index) => {
                 elem.addEventListener('click', tiresLinkfunc);
                 function tiresLinkfunc() {
@@ -217,34 +246,6 @@ function getMainInfo() {
                 }
                 tiresLinkfunc();
             });
-
-            //рандомная дата
-            function randomDate(start, end) {
-                return new Date(start.getTime()
-                    + Math.random() * (end.getTime() - start.getTime()));
-            }
-            const date01 = randomDate(new Date(2010, 0, 1), new Date()); const date02 = randomDate(new Date(2010, 0, 1), new Date());
-            const date03 = randomDate(new Date(2010, 0, 1), new Date()); const date04 = randomDate(new Date(2010, 0, 1), new Date());
-            const date05 = randomDate(new Date(2010, 0, 1), new Date()); const date06 = randomDate(new Date(2010, 0, 1), new Date());
-            const date07 = randomDate(new Date(2010, 0, 1), new Date()); const date08 = randomDate(new Date(2010, 0, 1), new Date());
-            const date09 = randomDate(new Date(2010, 0, 1), new Date()); const date10 = randomDate(new Date(2010, 0, 1), new Date());
-
-            const arrDates = [date01, date02, date03, date04, date05, date06, date07, date08, date09, date10];
-            function dataVunc() {
-                arData = [];
-                arrDates.forEach((elem) => {
-                    ar = (`${elem.getFullYear()}-${('0' + (elem.getMonth() + 1)).slice(-2)}-${('0' + elem.getDate()).slice(-2)}`);
-                    arData.push(ar);
-                    return arData;
-                })
-            }
-            dataVunc()
-
-
-
-            const arrAll1 = [[], [], [], [], [], [], [], [], [], []];
-            const arrAll2 = [[], [], [], [], [], [], [], [], [], []];
-
 
             //кладем значения в каждое колесо
             arrTime = [];
