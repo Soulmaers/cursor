@@ -27,7 +27,8 @@ function getMainInfo() {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
             arr = Object.values(result);
-            array = arr.slice(0, 10);
+            arrayD = arr.slice(0, 10);
+            arrayT = arr.slice(11, 20);
 
 
             //проверяем условия
@@ -61,9 +62,9 @@ function getMainInfo() {
 
             const funcRandom = () => {
                 // arrD = Array(2).fill(0).map(math);
-                arrT = Array(10).fill(0).map(math);
-                arr733D = array;
-                arr733T = arrT;
+                //arrT = Array(10).fill(0).map(math);
+                arr733D = arrayD;
+                arr733T = arrayT;
 
 
                 //Объект 5
