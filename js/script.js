@@ -236,7 +236,7 @@ function getMainInfo() {
             function go() {
                 arrTime.push(getNowtime1());
                 arr733D.forEach((el, index) => {
-                    arrAll1[index].push(el);
+                    arrAll1[index].push(parseFloat(el.toFixed(0)));
                 })
                 arr733T.forEach((el, index) => {
                     arrAll2[index].push(el);
