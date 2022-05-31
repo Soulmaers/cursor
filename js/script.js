@@ -9,7 +9,7 @@ $(document).ready(function () {
             if (code) {
                 return;
             }
-
+            setInterval(getMainInfo, 2000);
             //getMainInfo()
         });
 });
@@ -211,127 +211,129 @@ function getMainInfo() {
                 })
             }
             dataVunc()
-            const arrAll1 = [[], [], [], [], [], [], [], [], [], []];
-            const arrAll2 = [[], [], [], [], [], [], [], [], [], []];
-
-            arrTireslink.forEach((elem, index) => {
-                elem.addEventListener('click', tiresLinkfunc);
-                function tiresLinkfunc() {
-                    const dataMade = document.querySelector('.data_made');
-                    const probeg = document.querySelector('.probeg');
-                    const runShine = Array(10).fill(0).map(runTires);
-                    function tiresActivedatchik() {
-                        elem = runShine[index];
-                        probeg.textContent = elem + ' ' + 'км';
-                    }
-                    tiresActivedatchik();
-                    function dataMadefunc() {
-                        elem = arData[index];
-                        dataMade.textContent = elem;
-                    }
-                    dataMadefunc();
-                    function tiresGrafik() {
-                        elem = arrAll1[index];
-                        davl = elem;
-                        elem = arrAll2[index];
-                        davl2 = elem;
-                    }
-                    tiresGrafik(arrAll1)
-                    tiresGrafik(arrAll2)
-                }
-                tiresLinkfunc();
-            });
-            //кладем значения в каждое колесо
-            arrTime = [];
-            function go() {
-                arrTime.push(getNowtime1());
-                arr733D.forEach((el, index) => {
-                    arrAll1[index].push(parseFloat(el.toFixed(0)));
-                })
-                arr733T.forEach((el, index) => {
-                    arrAll2[index].push(el);
-                })
-                return arrAll1, arrAll2;
-            }
-            go();
-            //setInterval(go, 2000);
-
-            //графики
-            Chart.register(ChartDataLabels);
-            myChartg = new Chart(myChartg, {
-                type: 'line',
-                data: {
-                    datasets: [{
-                        data: davl,
-                        label: 'Давление',
-                        fill: false,
-                        borderColor: 'lightgreen',
-                        yAxisID: 'left-y-axis'
-                    }, {
-                        data: davl2,
-                        label: 'Температура',
-                        fill: false,
-                        borderColor: 'lightblue',
-                        yAxisID: 'right-y-axis'
-                    }],
-                    labels: arrTime
-                },
-                options: {
-                    plugins: {
-                        legend: {
-                            labels: {
-                                font: {
-                                    size: 20,
-                                },
-                                color: 'gray'
-                            }
-                        }
-                    },
-                    scales: {
-                        'left-y-axis': {
-                            type: 'linear',
-                            position: 'left',
-                            min: 0,
-                            max: 12,
-                            ticks: {
-                                font: {
-                                    size: 18,
-                                }
-                            }
-                        },
-                        'right-y-axis': {
-                            type: 'linear',
-                            position: 'right',
-                            min: 0,
-                            max: 25,
-                            ticks: {
-                                font: {
-                                    size: 18,
-                                }
-                            }
-                        },
-                        x: {
-                            ticks: {
-                                font: {
-                                    size: 10
-                                }
-                            }
-                        }
-                    },
-                }
-            });
-            const upDia = () => {
-                myChartg.data.datasets[0].data = davl;
-                myChartg.data.datasets[1].data = davl2;
-                myChartg.update();
-            }
-            setInterval(upDia, 100);
-
-
         });
 
 }
-setInterval(getMainInfo, 2000);
+
+const arrAll1 = [[], [], [], [], [], [], [], [], [], []];
+const arrAll2 = [[], [], [], [], [], [], [], [], [], []];
+
+arrTireslink.forEach((elem, index) => {
+    elem.addEventListener('click', tiresLinkfunc);
+    function tiresLinkfunc() {
+        const dataMade = document.querySelector('.data_made');
+        const probeg = document.querySelector('.probeg');
+        const runShine = Array(10).fill(0).map(runTires);
+        function tiresActivedatchik() {
+            elem = runShine[index];
+            probeg.textContent = elem + ' ' + 'км';
+        }
+        tiresActivedatchik();
+        function dataMadefunc() {
+            elem = arData[index];
+            dataMade.textContent = elem;
+        }
+        dataMadefunc();
+        function tiresGrafik() {
+            elem = arrAll1[index];
+            davl = elem;
+            elem = arrAll2[index];
+            davl2 = elem;
+        }
+        tiresGrafik(arrAll1)
+        tiresGrafik(arrAll2)
+    }
+    tiresLinkfunc();
+});
+//кладем значения в каждое колесо
+arrTime = [];
+function go() {
+    arrTime.push(getNowtime1());
+    arr733D.forEach((el, index) => {
+        arrAll1[index].push(parseFloat(el.toFixed(0)));
+    })
+    arr733T.forEach((el, index) => {
+        arrAll2[index].push(el);
+    })
+    return arrAll1, arrAll2;
+}
+go();
+//setInterval(go, 2000);
+
+//графики
+Chart.register(ChartDataLabels);
+myChartg = new Chart(myChartg, {
+    type: 'line',
+    data: {
+        datasets: [{
+            data: davl,
+            label: 'Давление',
+            fill: false,
+            borderColor: 'lightgreen',
+            yAxisID: 'left-y-axis'
+        }, {
+            data: davl2,
+            label: 'Температура',
+            fill: false,
+            borderColor: 'lightblue',
+            yAxisID: 'right-y-axis'
+        }],
+        labels: arrTime
+    },
+    options: {
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 20,
+                    },
+                    color: 'gray'
+                }
+            }
+        },
+        scales: {
+            'left-y-axis': {
+                type: 'linear',
+                position: 'left',
+                min: 0,
+                max: 12,
+                ticks: {
+                    font: {
+                        size: 18,
+                    }
+                }
+            },
+            'right-y-axis': {
+                type: 'linear',
+                position: 'right',
+                min: 0,
+                max: 25,
+                ticks: {
+                    font: {
+                        size: 18,
+                    }
+                }
+            },
+            x: {
+                ticks: {
+                    font: {
+                        size: 10
+                    }
+                }
+            }
+        },
+    }
+});
+const upDia = () => {
+    myChartg.data.datasets[0].data = davl;
+    myChartg.data.datasets[1].data = davl2;
+    myChartg.update();
+}
+setInterval(upDia, 100);
+
+
+
+
 
 /*
 
