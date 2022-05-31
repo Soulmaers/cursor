@@ -254,7 +254,7 @@ function getMainInfo() {
                 return arrAll1, arrAll2;
             }
             go();
-            //setInterval(go, 5000);
+            setInterval(go, 2000);
 
             //графики
             Chart.register(ChartDataLabels);
