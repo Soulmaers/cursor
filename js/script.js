@@ -9,8 +9,8 @@ $(document).ready(function () {
             if (code) {
                 return;
             }
-            //setInterval(getMainInfo, 2000);
-            getMainInfo()
+            setInterval(getMainInfo, 2000);
+            //getMainInfo()
         });
 });
 
