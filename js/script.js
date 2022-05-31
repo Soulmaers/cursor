@@ -27,8 +27,8 @@ function getMainInfo() {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
             arr = Object.values(result);
-            arrayD = arr.slice(0, 10);
-            arrayT = arr.slice(11, 20);
+            arrayD = arr.slice(0, 9);
+            arrayT = arr.slice(10, 20);
 
 
             //проверяем условия
@@ -74,7 +74,7 @@ function getMainInfo() {
                     time[0].textContent = getNowtime();
                     const logic733 = () => {
                         alls.forEach(function (elem, index) {
-                            elem.textContent = arr733D[index] + '\nатм';
+                            elem.textContent = arr733D[index].toFixed(1) + '\nатм';
                         })
                         allsT.forEach(function (elem, index) {
                             elem.textContent = arr733T[index] + '°C';
