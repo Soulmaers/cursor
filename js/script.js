@@ -34,11 +34,11 @@ function getMainInfo() {
             //проверяем условия
             function gener(el) {
                 let generatedValue;
-                if (el >= 2)
+                if (el >= 8 && el <= 10)
                     generatedValue = 3;
-                if (el > 0 && el < 2)
+                if (el >= 7 && el < 8 || el > 10 && el <= 11)
                     generatedValue = 2;
-                if (el == 0)
+                else//if (el == 0)
                     generatedValue = 1;
                 return generatedValue;
             };
