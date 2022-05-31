@@ -28,7 +28,7 @@ function getMainInfo() {
             }
             arr = Object.values(result);
             arrayD = arr.slice(0, 10);
-            arrayT = arr.slice(11, 20);
+            arrayT = arr.slice(10, 20);
 
 
             //проверяем условия
