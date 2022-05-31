@@ -162,33 +162,7 @@ function getMainInfo() {
                 return nowTime;
             }
 
-            //проваливаемся в колесо
-            const tires_link = document.querySelectorAll('.tires_link');
-            const arrTireslink = Array.from(tires_link);
-            arrTireslink.forEach(function (elem, index) {
-                elem.addEventListener('click', tiresActive);
-                function tiresActive() {
-                    arrTireslink.forEach(function (elem, index) {
-                        tD = document.querySelectorAll('.tiresD');
-                        tT = document.querySelectorAll('.tiresT');
-                        elem = tD[index].classList.remove('tiresActiveD');
-                        elem = tT[index].classList.remove('tiresActiveT');
-                    })
-                    tD = document.querySelectorAll('.tiresD');
-                    tT = document.querySelectorAll('.tiresT');
-                    elem = tD[index].classList.toggle('tiresActiveD');
-                    elem = tT[index].classList.toggle('tiresActiveT');
-                    check = document.querySelector('.check')
-                    //check.style.display = 'none';
-                    dataActive = document.querySelector('.dataActive')
-                    dataActive.style.display = 'block';
-                    wCA = document.querySelector('.wrapper_containt')
-                    wCA.classList.add('wrapper_containt_active')
-                    grafik = document.querySelector('.grafik');
-                    grafik.style.display = 'block';
-                }
 
-            });
 
             //рандомная дата
             function randomDate(start, end) {
@@ -217,6 +191,34 @@ function getMainInfo() {
 
 const arrAll1 = [[], [], [], [], [], [], [], [], [], []];
 const arrAll2 = [[], [], [], [], [], [], [], [], [], []];
+
+//проваливаемся в колесо
+const tires_link = document.querySelectorAll('.tires_link');
+const arrTireslink = Array.from(tires_link);
+arrTireslink.forEach(function (elem, index) {
+    elem.addEventListener('click', tiresActive);
+    function tiresActive() {
+        arrTireslink.forEach(function (elem, index) {
+            tD = document.querySelectorAll('.tiresD');
+            tT = document.querySelectorAll('.tiresT');
+            elem = tD[index].classList.remove('tiresActiveD');
+            elem = tT[index].classList.remove('tiresActiveT');
+        })
+        tD = document.querySelectorAll('.tiresD');
+        tT = document.querySelectorAll('.tiresT');
+        elem = tD[index].classList.toggle('tiresActiveD');
+        elem = tT[index].classList.toggle('tiresActiveT');
+        check = document.querySelector('.check')
+        //check.style.display = 'none';
+        dataActive = document.querySelector('.dataActive')
+        dataActive.style.display = 'block';
+        wCA = document.querySelector('.wrapper_containt')
+        wCA.classList.add('wrapper_containt_active')
+        grafik = document.querySelector('.grafik');
+        grafik.style.display = 'block';
+    }
+
+});
 
 arrTireslink.forEach((elem, index) => {
     elem.addEventListener('click', tiresLinkfunc);
