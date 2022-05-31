@@ -74,7 +74,7 @@ function getMainInfo() {
                     time[0].textContent = getNowtime();
                     const logic733 = () => {
                         alls.forEach(function (elem, index) {
-                            elem.textContent = arr733D[index].toFixed(1) + '\nатм';
+                            elem.textContent = arr733D[index].toFixed(1) + '\nБар';
                         })
                         allsT.forEach(function (elem, index) {
                             elem.textContent = arr733T[index] + '°C';
