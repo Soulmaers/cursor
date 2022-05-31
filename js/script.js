@@ -38,7 +38,7 @@ function getMainInfo() {
                     generatedValue = 3;
                 if (el >= 7 && el < 8 || el > 10 && el <= 11)
                     generatedValue = 2;
-                else//if (el == 0)
+                if (el >= -10000 && el < 7 || el > 11 && el <= 1000000)
                     generatedValue = 1;
                 return generatedValue;
             };
@@ -53,9 +53,9 @@ function getMainInfo() {
             const stat = document.querySelectorAll('.bg_stat');
 
             //запускаем рандом
-            function math() {
+            /*function math() {
                 return Math.floor(Math.random() * 10);
-            }
+            }*/
             function runTires() {
                 return Math.floor(Math.random() * 10000);
             }
