@@ -293,7 +293,7 @@ function getMainInfo() {
                             type: 'linear',
                             position: 'right',
                             min: 0,
-                            max: 10,
+                            max: 25,
                             ticks: {
                                 font: {
                                     size: 18,
