@@ -64,9 +64,9 @@ const funcRandom = () => {
 
     }
 
-    arrD = Array(2).fill(0).map(math);
-    arrT = Array(10).fill(0).map(math);
-    arr733D = arrD;
+    //arrD = Array(2).fill(0).map(math);
+    //arrT = Array(10).fill(0).map(math);
+    arr733D = arr;
     arr733T = arrT;
 
 
