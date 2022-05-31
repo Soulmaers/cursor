@@ -42,6 +42,16 @@ function getMainInfo() {
                     generatedValue = 1;
                 return generatedValue;
             };
+            function generT(el) {
+                let generatedValue;
+                if (el >= 20 && el <= 30)
+                    generatedValue = 3;
+                if (el >= 15 && el < 20 || el > 30 && el <= 32)
+                    generatedValue = 2;
+                if (el >= -10000000 && el < 15 || el > 32 && el <= 1000000)
+                    generatedValue = 1;
+                return generatedValue;
+            };
             //создаем объект где ключ-результат условия, а свойства - соответсующее условию значение
             const objColor = {
                 1: '#e03636',
@@ -83,7 +93,7 @@ function getMainInfo() {
                             elem.style.background = objColor[gener(arr733D[index])];
                         })
                         allsT.forEach(function (elem, index) {
-                            elem.style.background = objColor[gener(arr733T[index])];
+                            elem.style.background = objColor[generT(arr733T[index])];
                         })
                     }
                     logic733();
