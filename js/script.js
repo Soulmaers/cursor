@@ -1,3 +1,16 @@
+
+/*
+function foo() {
+    var httpRequest = new XMLHttpRequest();
+
+    httpRequest.open('POST', 'https://hst-api.wialon.com/wialon/ajax.html?svc=token/login&params={%22token%22:%220f481b03d94e32db858c7bf2d84152041F49949D880D9189DE1A3C3E3E554FA5D7F4B74C%22}');
+
+    httpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpRequest.send();
+    return console.log(httpRequest.responseText);
+}
+foo()
+*/
 // wialon api запросы
 $(document).ready(function () {
     wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com");
@@ -6,25 +19,9 @@ $(document).ready(function () {
             if (code) {
                 return;
             }
-            setInterval(getMainInfo, 5000);
-            //getMainInfo(onComplete)
-            ;
+            setInterval(getMainInfo, 1000);
         });
 });
-
-/*function onComplete(a) { // When the code completes, do this
-    console.log(a)
-}
-function getFive(whenDone) {
-    var a;
-    setTimeout(function () {
-        a = 5;
-        whenDone(a);
-    }, 2000);
-}
-getFive(onComplete);*/
-
-
 
 function getMainInfo() {
     wialon.core.Session.getInstance().initSession("https://hst-api.wialon.com"); // get instance of current Session
@@ -32,28 +29,19 @@ function getMainInfo() {
         "unitId": 25343786,
         "sensors": []
     };
-
     const remote = wialon.core.Remote.getInstance();
     remote.remoteCall('unit/calc_last_message', prms1,
         function (code, result) {
             if (code) {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
-
             arr = Object.values(result);
             arrayD = arr.slice(0, 10);
             arrayT = arr.slice(10, 20);
             funcRandom(arrayD, arrayT);
             go(arrayD, arrayT);
-
-            return console.log(arrayD, arrayT)
-
         });
-
-
 }
-
-
 //проверяем условия
 function gener(el) {
     let generatedValue;
@@ -83,62 +71,24 @@ const objColor = {
 }
 const time = document.querySelectorAll('.time');
 const stat = document.querySelectorAll('.bg_stat');
-
-
-
-//кладем в пустые массивы значения каждого колеса
-
-
-
+time[0].textContent = getNowtime();
 const funcRandom = (el1, el2) => {
-    // arrD = Array(2).fill(0).map(math);
-    //arrT = Array(10).fill(0).map(math);
-    arr733D = el1;
-    arr733T = el2;
-
+    //  arr733D = el1;
+    // arr733T = el2;
     //кладем значения в каждое колесо
     //Объект 5
     const Obj733 = () => {
-        const alls = document.querySelectorAll('.tiresD733');
-        const allsT = document.querySelectorAll('.tiresT733');
-        time[0].textContent = getNowtime();
-        const logic733 = () => {
-            alls.forEach(function (elem, index) {
-                if (arr733D[index] === -348201.3876) {
-                    elem.textContent = '-';
-                }
-                else {
-                    elem.textContent = parseFloat(arr733D[index].toFixed(1)) + '\nБар';
-                }
-
-            })
-            allsT.forEach(function (elem, index) {
-                if (arr733T[index] == -348201.3876) {
-                    elem.textContent = '-';
-                }
-                else {
-                    elem.textContent = arr733T[index] + '°C';
-                }
-
-            })
-            alls.forEach(function (elem, index) {
-                elem.style.background = objColor[gener(arr733D[index])];
-            })
-            allsT.forEach(function (elem, index) {
-                elem.style.background = objColor[generT(arr733T[index])];
-            })
-        }
-        logic733();
+        logic733(el1, el2);
         const statGal = () => {
             stat[0].style.backgroundImage = "url(image/gal.png)";
         }
         const statEr = () => {
             stat[0].style.backgroundImage = "url(image/er.png)";
         }
-        if (arr733D[0] >= 2 && arr733D[1] >= 2 && arr733D[2] >= 2 && arr733D[3] >= 2 && arr733D[4] >= 2
-            && arr733D[5] >= 2 && arr733D[6] >= 2 && arr733D[7] >= 2 && arr733D[8] >= 2 && arr733D[9] >= 2 &&
-            arr733T[0] >= 2 && arr733T[1] >= 2 && arr733T[2] >= 2 && arr733T[3] >= 2 && arr733T[4] >= 2
-            && arr733T[5] >= 2 && arr733T[6] >= 2 && arr733T[7] >= 2 && arr733T[8] >= 2 && arr733T[9] >= 2) {
+        if (el1[0] >= 2 && el1[1] >= 2 && el1[2] >= 2 && el1[3] >= 2 && el1[4] >= 2
+            && el1[5] >= 2 && el1[6] >= 2 && el1[7] >= 2 && el1[8] >= 2 && el1[9] >= 2 &&
+            el2[0] >= 2 && el2[1] >= 2 && el2[2] >= 2 && el2[3] >= 2 && el2[4] >= 2
+            && el2[5] >= 2 && el2[6] >= 2 && el2[7] >= 2 && el2[8] >= 2 && el2[9] >= 2) {
             statGal();
         } else {
             statEr();
@@ -147,7 +97,32 @@ const funcRandom = (el1, el2) => {
     Obj733();
 
 }
-
+const logic733 = (el1, el2) => {
+    const alls = document.querySelectorAll('.tiresD733');
+    const allsT = document.querySelectorAll('.tiresT733');
+    alls.forEach(function (elem, index) {
+        if (el1[index] === -348201.3876) {
+            elem.textContent = '-';
+        }
+        else {
+            elem.textContent = parseFloat(el1[index].toFixed(1)) + '\nБар';
+        }
+    })
+    allsT.forEach(function (elem, index) {
+        if (el2[index] == -348201.3876 || el2[index] == -128) {
+            elem.textContent = '-';
+        }
+        else {
+            elem.textContent = el2[index] + '°C';
+        }
+    })
+    alls.forEach(function (elem, index) {
+        elem.style.background = objColor[gener(el1[index])];
+    })
+    allsT.forEach(function (elem, index) {
+        elem.style.background = objColor[generT(el2[index])];
+    })
+}
 //текущее время
 function getNowtime() {
     let now = new Date();
@@ -258,79 +233,82 @@ arrTireslink.forEach((elem, index) => {
         tiresGrafik(arrAll1)
         tiresGrafik(arrAll2)
         //графики
-        Chart.register(ChartDataLabels);
-
-        myChartg = new Chart(myChartg, {
-            type: 'line',
-            data: {
-                datasets: [{
-                    data: davl,
-                    label: 'Давление',
-                    fill: false,
-                    borderColor: 'lightgreen',
-                    yAxisID: 'left-y-axis'
-                }, {
-                    data: davl2,
-                    label: 'Температура',
-                    fill: false,
-                    borderColor: 'lightblue',
-                    yAxisID: 'right-y-axis'
-                }],
-                labels: arrTime
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        labels: {
-                            font: {
-                                size: 20,
-                            },
-                            color: 'gray'
-                        }
-                    }
-                },
-                scales: {
-                    'left-y-axis': {
-                        type: 'linear',
-                        position: 'left',
-                        min: 0,
-                        max: 12,
-                        ticks: {
-                            font: {
-                                size: 18,
-                            }
-                        }
-                    },
-                    'right-y-axis': {
-                        type: 'linear',
-                        position: 'right',
-                        min: 0,
-                        max: 50,
-                        ticks: {
-                            font: {
-                                size: 18,
-                            }
-                        }
-                    },
-                    x: {
-                        ticks: {
-                            font: {
-                                size: 10
-                            }
-                        }
-                    }
-                },
-            }
-        });
-
-        const upDia = () => {
-            myChartg.data.datasets[0].data = davl;
-            myChartg.data.datasets[1].data = davl2;
-            myChartg.update();
-        }
-        setInterval(upDia, 100);
+        chrt();
     }
 });
+
+function chrt() {
+    Chart.register(ChartDataLabels);
+    myChartg = new Chart(myChartg, {
+        type: 'line',
+        data: {
+            datasets: [{
+                data: davl,
+                label: 'Давление',
+                fill: false,
+                borderColor: 'lightgreen',
+                yAxisID: 'left-y-axis'
+            }, {
+                data: davl2,
+                label: 'Температура',
+                fill: false,
+                borderColor: 'lightblue',
+                yAxisID: 'right-y-axis'
+            }],
+            labels: arrTime
+        },
+        options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 20,
+                        },
+                        color: 'gray'
+                    }
+                }
+            },
+            scales: {
+                'left-y-axis': {
+                    type: 'linear',
+                    position: 'left',
+                    min: 0,
+                    max: 12,
+                    ticks: {
+                        font: {
+                            size: 18,
+                        }
+                    }
+                },
+                'right-y-axis': {
+                    type: 'linear',
+                    position: 'right',
+                    min: 0,
+                    max: 50,
+                    ticks: {
+                        font: {
+                            size: 18,
+                        }
+                    }
+                },
+                x: {
+                    ticks: {
+                        font: {
+                            size: 10
+                        }
+                    }
+                }
+            },
+        }
+    });
+
+    const upDia = () => {
+        myChartg.data.datasets[0].data = davl;
+        myChartg.data.datasets[1].data = davl2;
+        myChartg.update();
+    }
+    setInterval(upDia, 100);
+}
 const arrAll1 = [[], [], [], [], [], [], [], [], [], []];
 const arrAll2 = [[], [], [], [], [], [], [], [], [], []];
 arrTime = [];
@@ -362,3 +340,33 @@ function go(item1, item2) {
     })
     return arrAll1, arrAll2
 }
+
+
+
+
+
+/*
+function getSensors() { // construct sensors Select list for selected unit
+    if (!$("#units").val()) { msg("Select unit"); return; } // exit if no unit selected
+    $("#sensors").html("<option></option>"); // add first empty element
+    var sess = wialon.core.Session.getInstance(); // get instance of current Session
+    var unit = sess.getItem($("#units").val()); // get unit by id
+    var sens = unit.getSensors(); // get unit's sensors
+    for (var i in sens) // construct select list
+        $("#sensors").append("<option value='" + sens[i].id + "'>" + sens[i].n + "</option>");
+}
+let result;
+function getSensorInfo() { // get and show information about selected Sensor
+    if (!$("#units").val()) { msg("Select unit"); return; } // exit if no unit selected
+    if (!$("#sensors").val()) return; // exit if no unit selected
+    var sess = wialon.core.Session.getInstance(); // get instance of current Session
+    var unit = sess.getItem($("#units").val()); // get unit by id
+    var sens = unit.getSensors($("#sensors").val()); // get sensor by id
+    // calculate sensor value
+    let result = unit.calculateSensorValue(sens, unit.getLastMessage());
+    if (result == -348201.3876) result = "N/A"; // compare result with invalid sensor value constant
+    // print result message
+    console.log(sens);
+    console.log(result);
+    msg(result);
+}*/
