@@ -1,22 +1,23 @@
-
 function mathV() {
     return Math.floor(Math.random() * 10);
 }
 mathV();
+
+
 function dashDav() {
-    const arrDall = Array(36).fill(0).map(mathV);
+    const arrDall = arrayD;
     countRed = 0;
     countYellow = 0;
     countGreen = 0;
-    arrDall.forEach((elem) => {
-        if (elem === 0) {
-            countRed++
+    arrDall.forEach((el) => {
+        if (el >= 8 && el <= 10) {
+            countGreen++
         }
-        if (elem > 0 && elem < 2) {
+        if (el >= 7 && el < 8 || el > 10 && el <= 11) {
             countYellow++
         }
-        if (elem >= 2) {
-            countGreen++
+        if (el >= -1000 && el < 7 || el > 11 || el === -348201.3876) {
+            countRed++
         }
     })
     resultRed = Math.round(countRed / arrDall.length * 100);
@@ -24,8 +25,8 @@ function dashDav() {
     resultGreen = Math.round(countGreen / arrDall.length * 100);
     return arrDash = [resultRed, resultYellow, resultGreen];
 }
-dashDav()
-setInterval(dashDav, 5000);
+
+//setInterval(dashDav, 5000);
 
 
 Chart.register(ChartDataLabels);
@@ -41,7 +42,7 @@ chart = new Chart(ctx, {
         ],
         datasets: [{
             label: 'Дашбоард',
-            data: arrDash,
+            data: setInterval(dashDav, 1200),
             backgroundColor: [
                 '#e03636',
                 '#9ba805',
@@ -66,31 +67,30 @@ chart = new Chart(ctx, {
         }
     }
 });
-
 const upDav = () => {
     chart.data.datasets[0].data = arrDash;
     chart.update();
 }
-setInterval(upDav, 1000);
+setInterval(upDav, 1200);
 
 function dashDat() {
-    const arrDall = Array(36).fill(0).map(mathV);
+    const arrDall = arr;
     countJob = 0;
     countError = 0;
-    arrDall.forEach((elem) => {
-        if (elem === 0) {
-            countJob++
-        }
-        if (elem > 0) {
+    arrDall.forEach((el) => {
+        if (el < -100) {
             countError++
+        }
+        if (el > -30 && el < 50) {
+            countJob++
         }
     })
     resultJob = Math.round(countJob / arrDall.length * 100);
     resultError = Math.round(countError / arrDall.length * 100);
-    return arrDashdat = [resultJob, resultError];
+    return arrDashdat = [resultError, resultJob];
 }
-dashDat()
-setInterval(dashDat, 5000);
+
+//setInterval(dashDat, 5000);
 
 const ctx2 = document.getElementById('myChart2').getContext('2d');
 const chart2 = new Chart(ctx2, {
@@ -102,7 +102,7 @@ const chart2 = new Chart(ctx2, {
         ],
         datasets: [{
             label: 'My First Dataset',
-            data: arrDashdat,
+            data: setInterval(dashDat, 1200),
             backgroundColor: [
                 'gray',
                 '#3eb051'
@@ -131,4 +131,4 @@ const upDat = () => {
     chart2.data.datasets[0].data = arrDashdat;
     chart2.update();
 }
-setInterval(upDat, 5000);
+setInterval(upDat, 1200);
