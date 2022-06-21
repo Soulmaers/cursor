@@ -41,11 +41,12 @@ function getMainInfo() {
                 console.log(wialon.core.Errors.getErrorText(code));
             }
             arr = Object.values(result);
+            arrAll = arr.slice(0, 20);
             arrayD = arr.slice(0, 10);
             arrayT = arr.slice(10, 20);
             funcRandom(arrayD, arrayT);
             go(arrayD, arrayT);
-            return window['arrayD'] = arrayD, arrayT, arr
+            return window['arrayD'] = arrayD, arrayT, arrAll
         });
 }
 //проверяем условия

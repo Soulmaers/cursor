@@ -74,7 +74,7 @@ const upDav = () => {
 setInterval(upDav, 1200);
 
 function dashDat() {
-    const arrDall = arr;
+    const arrDall = arrAll;
     countJob = 0;
     countError = 0;
     arrDall.forEach((el) => {
