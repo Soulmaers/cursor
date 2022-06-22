@@ -47,6 +47,7 @@ function getMainInfo() {
             arrayT = arr.slice(10, 20);
             funcRandom(arrayD, arrayT);
             go(arrayD, arrayT);
+            console.log(arr);
             return window['arrayD'] = arrayD, arrayT, arrAll
         });
 }
