@@ -22,7 +22,8 @@ function init() {
             if (code) {
                 return;
             }
-            setInterval(getMainInfo, 200);
+            getMainInfo();
+            setInterval(getMainInfo, 5000);
         });
 };
 init();

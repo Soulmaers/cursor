@@ -42,7 +42,7 @@ chart = new Chart(ctx, {
         ],
         datasets: [{
             label: 'Дашбоард',
-            data: setInterval(dashDav, 1200),
+            data: setInterval(dashDav, 5000),
             backgroundColor: [
                 '#e03636',
                 '#9ba805',
@@ -71,7 +71,7 @@ const upDav = () => {
     chart.data.datasets[0].data = arrDash;
     chart.update();
 }
-setInterval(upDav, 1200);
+setInterval(upDav, 5000);
 
 function dashDat() {
     const arrDall = arrAll;
@@ -102,7 +102,7 @@ const chart2 = new Chart(ctx2, {
         ],
         datasets: [{
             label: 'My First Dataset',
-            data: setInterval(dashDat, 1200),
+            data: setInterval(dashDat, 5000),
             backgroundColor: [
                 'gray',
                 '#3eb051'
@@ -131,4 +131,4 @@ const upDat = () => {
     chart2.data.datasets[0].data = arrDashdat;
     chart2.update();
 }
-setInterval(upDat, 1200);
+setInterval(upDat, 5000);
